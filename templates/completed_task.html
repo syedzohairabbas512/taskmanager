@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Completed Task
+{% endblock %}
+
+
+
+{% block main %}
+
+<h1 mb-0>
+    <strong>
+      <span style="color: #FF0000;">C</span>
+      <span style="color: #00FF00;">O</span>
+      <span style="color: #0000FF;">M</span>
+      <span style="color: #FFA500;">P</span>
+      <span style="color: #FF0000;">L</span>
+      <span style="color: #00FF00;">E</span>
+      <span style="color: #0000FF;">T</span>
+      <span style="color: #FFA500;">E</span>
+      <span style="color: #FF0000;">D</span>
+      <span style="color: #FF0000;">&nbsp;</span>
+
+    </strong>
+    <span style="color: #FF6347;">TASKS</span>
+  </h1>
+
+<table class="table table-striped index-table mt-3">
+    <thead>
+        <tr>
+            <th class="text-start">Starting Date</th>
+            <th class="text-start">Due Date</th>
+            <th class="text-start">Task</th>
+            <th class="text-start">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in TASKS %}
+        <tr>
+            <td class="text-start">{{ task.start_date }}</td>
+            <td class="text-start">{{ task.due_date }}</td>
+            <td class="text-start">{{ task.task }}</td>
+            <td class="text-start">{{ task.status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

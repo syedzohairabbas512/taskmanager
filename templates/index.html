@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Index
+{% endblock %}
+
+{% block main %}
+  <div class="container-xxl">
+    <div class="d-flex flex-row mb-3 status-div">
+      <div class="p-2 status">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-hourglass-top" viewBox="0 0 16 16">
+          <!-- Icon path -->
+          <path d="M2 14.5a.5.5 0 0 0 .5.5h11a.5.5 0 1 0 0-1h-1v-1a4.5 4.5 0 0 0-2.557-4.06c-.29-.139-.443-.377-.443-.59v-.7c0-.213.154-.451.443-.59A4.5 4.5 0 0 0 12.5 3V2h1a.5.5 0 0 0 0-1h-11a.5.5 0 0 0 0 1h1v1a4.5 4.5 0 0 0 2.557 4.06c.29.139.443.377.443.59v.7c0 .213-.154.451-.443.59A4.5 4.5 0 0 0 3.5 13v1h-1a.5.5 0 0 0-.5.5zm2.5-.5v-1a3.5 3.5 0 0 1 1.989-3.158c.533-.256 1.011-.79 1.011-1.491v-.702s.18.101.5.101.5-.1.5-.1v.7c0 .701.478 1.236 1.011 1.492A3.5 3.5 0 0 1 11.5 13v1h-7z" />
+        </svg>
+        <div class="ml-3">
+          <div class="h4 mb-0">Pending</div>
+          <div class="larger">
+            <h4>{{ pending }}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="p-2 status">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-hourglass-bottom" viewBox="0 0 16 16">
+          <!-- Icon path -->
+          <path d="M2 1.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1-.5-.5zm2.5.5v1a3.5 3.5 0 0 0 1.989 3.158c.533.256 1.011.791 1.011 1.491v.702s.18.149.5.149.5-.15.5-.15v-.7c0-.701.478-1.236 1.011-1.492A3.5 3.5 0 0 0 11.5 3V2h-7z" />
+        </svg>
+        <div class="ml-3">
+          <div class="h4 mb-0">Completed</div>
+          <div class="larger">
+            <h4>{{ completed }}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="p-2 status">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-hourglass-split" viewBox="0 0 16 16">
+          <!-- Icon path -->
+          <path d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48V8.35zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z" />
+        </svg>
+        <div class="ml-3">
+          <div class="h4 mb-0">In progress</div>
+          <div class="larger">
+            <h4>{{ in_progress }}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- YOUR TASKS -->
+  <h1 class="heading">
+    <strong>
+      <span style="color: #FF0000;">Y</span>
+      <span style="color: #00FF00;">O</span>
+      <span style="color: #0000FF;">U</span>
+      <span style="color: #FFA500;">R</span>
+      <span style="color: #FF0000;">&nbsp;</span>
+
+    </strong>
+    <span style="color: #FF6347;">TASKS</span>
+  </h1>
+  <table class="table table-striped index-table">
+    <thead>
+      <tr>
+        <th class="text-start">Start Date</th>
+        <th class="text-start">Due Date</th>
+        <th class="text-start">Task</th>
+        <th class="text-start">Description</th>
+        <th class="text-start">Status</th>
+        <th class="text-end">Change Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in TASKS %}
+        <tr>
+          <td class="text-start">{{ task.start_date }}</td>
+          <td class="text-start">{{ task.due_date }}</td>
+          <td class="text-start">{{ task.task }}</td>
+          <td class="text-start description">{{ task.description }}</td>
+          <td class="text-start">{{ task.status }}</td>
+          <td class="text-end">
+            <form class="text-end" action="/" method="POST">
+              <select class="text-end" name="change_status" value="{{ task.id }}">
+                <option selected disabled>Choose...</option>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+
+              <input type="hidden" name="task_id" value="{{ task.id }}" />
+              <button type="submit" class="btn btn-primary">Change</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

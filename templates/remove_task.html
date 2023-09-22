@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Remove Task
+{% endblock %}
+
+{% block main %}
+  <h1>
+    <strong>
+      <span style="color: #FF0000;">R</span>
+      <span style="color: #00FF00;">E</span>
+      <span style="color: #0000FF;">M</span>
+      <span style="color: #0000FF;">O</span>
+      <span style="color: #FF0000;">V</span>
+      <span style="color: #00FF00;">E</span>
+      <span style="color: #FF0000;">&nbsp;</span>
+
+    </strong>
+    <span style="color: #FF6347;">TASKS</span>
+  </h1>
+  <form class="row g-3" action="/remove_task" method="post">
+    <table class="table table-striped index-table">
+      <thead>
+        <tr>
+          <th class="text-start">Starting Date</th>
+          <th class="text-start">Due Date</th>
+          <th class="text-start">Task</th>
+          <th class="text-start">Status</th>
+          <th class="text-end">Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for task in TASKS %}
+          <tr>
+            <td class="text-start">{{ task.start_date }}</td>
+            <td class="text-start">{{ task.due_date }}</td>
+            <td class="text-start">{{ task.task }}</td>
+            <td class="text-start">{{ task.status }}</td>
+            <td class="text-end">
+              <button type="submit" class="btn btn-primary" name="task_id" value="{{ task.id }}">Remove Task</button>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </form>
+{% endblock %}

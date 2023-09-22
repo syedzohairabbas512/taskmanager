@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Pending Task
+{% endblock %}
+
+{% block main %}
+  <h1>
+    <strong>
+      <span style="color: #FF0000;">P</span>
+      <span style="color: #00FF00;">E</span>
+      <span style="color: #0000FF;">N</span>
+      <span style="color: #0000FF;">D</span>
+      <span style="color: #FF0000;">I</span>
+      <span style="color: #00FF00;">N</span>
+      <span style="color: #FF0000;">G</span>
+      <span style="color: #FF0000;">&nbsp;</span>
+
+    </strong>
+    <span style="color: #FF6347;">TASKS</span>
+  </h1>
+
+  <table class="table table-striped index-table">
+    <thead>
+      <tr>
+        <th class="text-start">Starting Date</th>
+        <th class="text-start">Due Date</th>
+        <th class="text-start">Task</th>
+        <th class="text-start">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in TASKS %}
+        <tr>
+          <td class="text-start">{{ task.start_date }}</td>
+          <td class="text-start">{{ task.due_date }}</td>
+          <td class="text-start">{{ task.task }}</td>
+          <td class="text-start">{{ task.status }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

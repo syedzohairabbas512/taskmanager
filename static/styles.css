@@ -1,0 +1,65 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+/* LAYOUT TEMPLATE */
+
+
+nav li {
+    margin-left: 6px;
+    margin-right: 6px;
+    font-size: 1.3rem;
+}
+
+/* INDEX TEMPLATE */
+
+
+.status-div {
+    background-color: #6c4b62;
+    align-items: center;
+    padding: 10px;
+    border-radius: 30px;
+    position: absolute;
+}
+
+.status {
+    margin-right: 20px;
+    margin-left: 20px;
+    border: 2px solid black;
+    background-color: #000000;
+    color: #b9b9b9;
+    border-radius: 70px;
+}
+
+
+
+.heading {
+    margin-top: 180px;
+}
+
+.index-table {
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: #b9b9b9;
+
+}
+
+.index-table thead {
+    background-color: #6c4b62;
+}
+
+.index-table .description {
+    width: 270px;
+    text-align: left;
+    font-size: 1.2rem;
+    border-radius: 3px;
+    margin: 10px;
+    padding: 10px;
+    max-height: 200px;
+    /* Adjust the max height as needed */
+    overflow-y: auto;
+    /* Add a vertical scrollbar when content overflows */
+}

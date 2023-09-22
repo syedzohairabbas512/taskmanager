@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Add New Task
+{% endblock %}
+
+{% block main %}
+<h1>
+  <strong>
+    <span style="color: #FF0000;">A</span>
+    <span style="color: #00FF00;">D</span>
+    <span style="color: #0000FF;">D</span>
+    <span style="color: #0000FF;">&nbsp;</span>
+
+    <span style="color: #FF0000;">N</span>
+    <span style="color: #00FF00;">E</span>
+    <span style="color: #0000FF;">W</span>
+    <span style="color: #0000FF;">&nbsp;</span>
+
+  </strong>
+  <span style="color: #FF6347;">TASKS</span>
+</h1>
+
+<form class="row g-3 mb-5" action="/add_new_task" method="post">
+  <!-- Date -->
+  <div class="col-md-6">
+    <label for="date" class="form-label">Starting Date of Task</label>
+    <input type="date" class="form-control" name="date" id="input_date">
+  </div>
+
+  <!-- Due Date -->
+  <div class="col-md-6">
+    <label for="due_date" class="form-label">Due Date</label>
+    <input type="date" class="form-control" name="due_date" id="due_date">
+  </div>
+
+  <!-- Task -->
+  <div class="col-12">
+    <label for="input_task" class="form-label">Task</label>
+    <input type="text" class="form-control" maxlength="50" name="task" id="input_task" placeholder="Task">
+  </div>
+
+  <!-- Description -->
+  <div class="col-12">
+    <label for="input_description" class="form-label">Description</label>
+    <input type="text" class="form-control" id="input_description" maxlength="500"
+      placeholder="Briefly Describe Your Task" name="description">
+  </div>
+
+
+  <!-- Status -->
+  <div class="col-md-4">
+    <label for="status" class="form-label">Status</label>
+    <select id="status" name="status" class="form-select">
+      <option selected>Choose...</option>
+      <option>Pending</option>
+      <option>Completed</option>
+      <option>In Progress</option>
+    </select>
+
+  </div>
+
+  <!-- Submit Button -->
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Add Task</button>
+  </div>
+</form>
+{% endblock %}
